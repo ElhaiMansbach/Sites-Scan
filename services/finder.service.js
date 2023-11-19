@@ -5,7 +5,8 @@ const finder = async (url, keyword) => {
   const html = await scraper(url);
   const found = parser(html, keyword);
   return {
-    timestamp: Date.now(),
+    timestamp: new Date().toLocaleString(),
+    // timestamp: Date.now(),
     keyword,
     url,
     found,
