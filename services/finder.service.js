@@ -3,10 +3,10 @@ const parser = require("./parser.service");
 
 const finder = async (url, keyword) => {
   const html = await scraper(url);
-  const found = parser(html, keyword);
+  let found = parser(html, keyword);
+  found = found === "0" ? "not found" : "found";
   return {
     timestamp: new Date().toLocaleString(),
-    // timestamp: Date.now(),
     keyword,
     url,
     found,
